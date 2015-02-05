@@ -17,3 +17,11 @@
 <% else %>
   <h3><%= @band.name %> has not played at any venues yet!</h3>
 <% end %>
+<br>
+
+<h3>Create a new venue:</h3>
+<form action="/venues" method="post">
+  <input type="text" name="name" placeholder="Venue name">
+
+  <button type="submit">Add venue</band>
+</form>
