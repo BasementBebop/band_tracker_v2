@@ -19,9 +19,18 @@
 <% end %>
 <br>
 
+<h3>Add venues that <%= @band.name %> has played:</h3>
+<form action="/bands/<%= @band.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <% @venues.each do |v| %>
+  <input type="checkbox" name="venue_ids[]" value="<%= v.id %>"><%= v.name %>
+  <br><% end %>
+  <button type="submit"> Submit changes</button>
+</form>  
+
 <h3>Create a new venue:</h3>
 <form action="/venues" method="post">
-  <input type="text" name="name" placeholder="Venue name">
+  <input type="text" name="venue_name" placeholder="Venue name">
 
   <button type="submit">Add venue</band>
 </form>
