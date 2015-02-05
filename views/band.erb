@@ -1,1 +1,19 @@
+<h1><a href="/">Bands</a></h1>
 
+<h3><%= @band.name %></h3>
+
+<form action="/bands/<%= @band.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+
+  <button type="submit">Delete band</button>
+</form>
+
+<h3>Venues where <%= @band.name %> has performed:</h3>
+
+<% if @band.venues.any? %>
+  <% @band.venues.each do |v| %>
+    <%= v.name %>
+  <% end %>
+<% else %>
+  <h3><%= @band.name %> has not played at any venues yet!</h3>
+<% end %>
